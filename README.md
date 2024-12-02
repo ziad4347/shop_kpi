@@ -1,130 +1,121 @@
 # Flutter E-Commerce Order Insights App
 
-This Flutter app provides insights from a local JSON file containing e-commerce order data. It displays key metrics about user purchases and visualizes the number of orders over time.
+This Flutter application provides insights into e-commerce order data using a local JSON file. It displays key metrics about user purchases and visualizes order trends over time.
 
 ## Features
 
-- **Order Metrics Screen**: Displays the following key metrics:
-  - Total order count
-  - Average order price
-  - Number of returns
+- **Order Metrics Screen**:
+  - Displays total order count, average order price, and number of returns.
 
-- **Order Graph Screen**: Displays a graph with:
-  - Y-axis: Number of orders
-  - X-axis: Time (with the data represented in a date-wise fashion)
+- **Order Graph Screen**:
+  - A graph showing the number of orders (Y-axis) over time (X-axis).
 
-The app is built to be user-friendly and simple to navigate, with a clean and modern design.
+- **User-Friendly Design**:
+  - Modern, clean, and intuitive user interface.
 
 ## Prerequisites
 
-- Flutter SDK (version 3.0 or above)
-- Dart SDK
-- An IDE like Visual Studio Code or Android Studio with Flutter and Dart plugins
-- Android/iOS Emulator or a physical device for testing
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) (version 3.0 or later)
+- [Dart SDK](https://dart.dev/get-dart)
+- IDE with Flutter and Dart plugins (e.g., [Visual Studio Code](https://code.visualstudio.com/) or [Android Studio](https://developer.android.com/studio))
+- Emulator or physical device for testing (Android/iOS)
 
 ## Getting Started
 
-1. **Clone the Repository**
+### 1. Clone the Repository
 
-   Clone this repository to your local machine using the following command:
-   ```bash
-   git clone https://github.com/ziad4347/shop_kpi.git   ```
+Clone this repository to your local machine:
 
-2. **Install Dependencies**
+```bash
+git clone https://github.com/ziad4347/shop_kpi.git
+```
 
-   Navigate to the project folder and install the necessary dependencies:
-   ```bash
-   cd shop_kpi
-   flutter pub get   ```
+### 2. Install Dependencies
 
-3. **Set Up the JSON File**
+Navigate to the project folder and install the required dependencies:
 
-   Place the `ORDERS.JSON` file in the `assets/` directory of the project. Make sure the file path is set correctly in the `pubspec.yaml` file for asset loading:
-   ```yaml
-   flutter:
-     assets:
-       - assets/ORDERS.JSON   ```
+```bash
+cd shop_kpi
+flutter pub get
+```
 
-4. **Run the App**
+### 3. Set Up the JSON File
 
-   To run the app on your preferred device (iOS, Android, or Web), use the following command:
-   ```bash
-   flutter run   ```
+Place the `ORDERS.JSON` file in the `assets/` directory of the project. Update the `pubspec.yaml` file to include the asset:
 
-   You can choose a specific platform by running:
+```yaml
+flutter:
+  assets:
+    - assets/ORDERS.JSON
+```
 
-   - For Android:
-     ```bash
-     flutter run -d android     ```
+### 4. Run the App
 
-   - For iOS (macOS only):
-     ```bash
-     flutter run -d ios     ```
+Run the app on your preferred platform (Android, iOS, or Web):
 
-   - For Web:
-     ```bash
-     flutter run -d chrome     ```
+```bash
+flutter run
+```
 
-5. **App Usage**
+For specific platforms:
+- **Android**: `flutter run -d android`
+- **iOS (macOS only)**: `flutter run -d ios`
+- **Web**: `flutter run -d chrome`
 
-   - **Order Metrics Screen**: Displays a summary of order-related statistics, including the total number of orders, average price, and number of returns.
-   - **Order Graph Screen**: Shows a graphical representation of orders over time, with the number of orders on the Y-axis and time (date) on the X-axis.
+### 5. App Usage
 
-6. **Testing the App**
+- **Order Metrics Screen**: Displays total orders, average price, and returns.
+- **Order Graph Screen**: Shows a date-wise graph of order trends.
 
-   Test the app on both Android and iOS emulators, and also on the Web (in Chrome or your browser of choice) to ensure compatibility.
+### 6. Testing
 
-## Folder Structure
+Test the app on Android, iOS, and Web to ensure compatibility.
 
-The `lib` directory is organized as follows:
+## Code Structure
 
-- **config/**: Contains configuration files for the app.
-  - `app_config.dart`: Defines static configuration values like the app name.
-  - `app_routes.dart`: Manages the routing configuration using `GoRouter`.
-
-- **models/**: Contains data models used in the app.
-  - `order_metric_mode.dart`: Defines the structure for order metrics.
-  - `order_model.dart`: Defines the structure for order data and includes methods for JSON serialization and deserialization.
-
-- **pages/**: Contains the UI components and screens of the app.
-  - **graph/**: Contains the graph screen and its widgets.
-    - `graph_screen.dart`: Displays the graph of orders.
-    - `widgets/orders_chart.dart`: Contains the chart widget for displaying order data.
-  - **layout/**: Contains layout components like sidebars and top bars.
-    - `layout_screen.dart`: Manages the layout of the app, including sidebars and top bars.
-    - `widgets/side_bar.dart`: Defines the sidebar widget.
-    - `widgets/top_bar.dart`: Defines the top bar widget.
-    - **widgets/side_bar_items/**: Contains models and widgets for sidebar items.
-      - `siderbar_item_model.dart`: Defines the structure for sidebar items.
-      - `side_bar_items.dart`: Manages the sidebar items.
-  - **order_metrics/**: Contains the order metrics screen and its widgets.
-    - `orders_metrics_screen.dart`: Displays the order metrics.
-    - `widgets/metric_card.dart`: Defines the metric card widget for displaying individual metrics.
-  - `not_found_view.dart`: Displays a "not found" screen for invalid routes.
-
-- **providers/**: Contains provider classes for state management.
-  - `orders_provider.dart`: Manages the state and data for orders, including loading and processing order data.
-
-- **theme/**: Contains theme-related files for styling the app.
-  - `app_color.dart`: Defines color constants used throughout the app.
-  - `app_status_bar.dart`: Manages the status bar style and visibility.
-  - `app_text_styles.dart`: Defines text styles used throughout the app.
-  - `app_theme.dart`: Configures the overall theme of the app.
-
-- **main.dart**: The entry point of the application, setting up the app's theme, routes, and providers.
-- `assets/`: Contains the `ORDERS.JSON` file.
-
-- `pubspec.yaml`: Configuration file for dependencies and assets.
+```
+lib/
+├── config/                     # Configuration files for app settings and routing
+│   ├── app_config.dart         # Defines static configuration values like app name
+│   ├── app_routes.dart         # Manages routing configuration using GoRouter
+├── models/                     # Data models for the app
+│   ├── order_metric_model.dart # Structure for order metrics
+│   ├── order_model.dart        # Structure for order data with JSON serialization
+├── pages/                      # UI components and screens of the app
+│   ├── graph/                  # Graph screen and its widgets
+│   │   ├── graph_screen.dart   # Displays the graph of orders
+│   │   ├── widgets/orders_chart.dart # Chart widget for displaying order data
+│   ├── layout/                 # Layout components like sidebars and top bars
+│   │   ├── layout_screen.dart  # Manages the app layout
+│   │   ├── widgets/side_bar.dart  # Sidebar widget
+│   │   ├── widgets/top_bar.dart   # Top bar widget
+│   │   ├── widgets/side_bar_items/ # Sidebar item models and widgets
+│   │       ├── siderbar_item_model.dart # Sidebar item structure
+│   │       ├── side_bar_items.dart      # Sidebar item widgets
+│   ├── order_metrics/          # Order metrics screen and widgets
+│   │   ├── orders_metrics_screen.dart # Displays order metrics
+│   │   ├── widgets/metric_card.dart    # Metric card widget
+│   ├── not_found_view.dart     # "Not found" screen for invalid routes
+├── providers/                  # State management classes
+│   ├── orders_provider.dart    # Manages order data and state
+├── theme/                      # Theme-related files for styling the app
+│   ├── app_color.dart          # Defines app-wide color constants
+│   ├── app_status_bar.dart     # Manages the status bar style
+│   ├── app_text_styles.dart    # Defines text styles for the app
+│   ├── app_theme.dart          # Configures the overall app theme
+├── main.dart                   # Entry point of the application
+assets/
+├── ORDERS.JSON                 # E-commerce order data
+pubspec.yaml                    # Configuration for dependencies and assets
+```
 
 ## Libraries & Packages Used
 
-- `provider`: For state management across different screens.
-- `go_router`: for simplify navigation and routing in applications, supporting deep linking and URL-based navigation.
-- `responsive_framework` & `responsive_grid`: Helps in building responsive layouts that adapt to different screen sizes.
-- `fl_chart`: For displaying the graph of orders over time.
+- [`provider`](https://pub.dev/packages/provider): For state management.
+- [`go_router`](https://pub.dev/packages/go_router): For navigation and deep linking.
+- [`responsive_framework`](https://pub.dev/packages/responsive_framework) & [`responsive_grid`](https://pub.dev/packages/responsive_grid): For building responsive layouts.
+- [`fl_chart`](https://pub.dev/packages/fl_chart): For graph visualization.
 
 ## License
 
-This project is open source and available under the MIT License.
-
----
+This project is open source and available under the [MIT License](https://opensource.org/licenses/MIT).
